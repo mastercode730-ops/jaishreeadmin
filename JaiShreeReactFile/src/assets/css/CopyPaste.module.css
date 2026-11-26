@@ -1,0 +1,416 @@
+/* CopyPaste.module.css */
+
+/* Import or define Guruji theme variables */
+:root {
+    /* Re-define necessary variables if not globally scoped */
+    --guruji-bg: #000000;
+    --guruji-header-bg: #000000;
+    --guruji-header-text: #ffffff;
+    --guruji-border-color: #ffc107; /* Yellow */
+    --guruji-text-light: #ffffff;
+    --guruji-text-dark: #000000;
+    --guruji-text-grey: #adb5bd;
+    --guruji-accent-yellow: #ffc107;
+    --guruji-accent-green: #28a745;
+    --guruji-accent-red: #dc3545;
+    --guruji-accent-whatsapp: #25d366;
+    --guruji-input-bg: #333;
+    --guruji-input-border: #555;
+    --guruji-input-text: #ffffff;
+    --guruji-input-focus-border: var(--guruji-accent-yellow);
+    --guruji-tab-bg: #1f1f1f;
+    --guruji-tab-active-bg: var(--guruji-accent-yellow);
+    --guruji-tab-active-text: var(--guruji-text-dark);
+    --guruji-tab-text: var(--guruji-text-light);
+    --guruji-table-header-bg: #343a40;
+    --guruji-table-cell-bg: #212529;
+    --guruji-add-button-bg: var(--guruji-accent-green);
+    --guruji-add-button-text: var(--guruji-text-light);
+    --guruji-delete-button-bg: var(--guruji-accent-red);
+    --guruji-delete-button-text: var(--guruji-text-light);
+    --guruji-play-button-bg: var(--guruji-accent-yellow);
+    --guruji-play-button-text: var(--guruji-text-dark);
+    --guruji-modal-bg: #2a2a2e;
+    --guruji-modal-border: var(--guruji-accent-yellow);
+    --guruji-container-padding: 10px;
+    --footer-height: 65px; /* Match footer height */
+  }
+  
+  /* --- Game Type Tabs (Shared with Playground/Crossing) --- */
+  .gameList {
+      display: flex;
+      justify-content: space-around;
+      background-color: var(--guruji-tab-bg);
+      padding: 5px;
+      margin: 0 var(--guruji-container-padding) 15px; /* Add margin */
+      border-radius: 6px;
+      border: 1px solid var(--guruji-border-color);
+  }
+  
+  .gameLink {
+      flex: 1;
+      text-align: center;
+      padding: 8px 5px;
+      text-decoration: none;
+      color: var(--guruji-tab-text);
+      font-weight: bold;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      text-transform: uppercase;
+  }
+  
+  .gameLink:hover {
+      background-color: #444;
+  }
+  
+  .activeGameLink {
+      background-color: var(--guruji-tab-active-bg); /* Yellow */
+      color: var(--guruji-tab-active-text); /* Black */
+  }
+  .activeGameLink:hover {
+      background-color: #e0ac00; /* Darker yellow on hover */
+  }
+  
+  /* --- Input Area --- */
+  .inputArea {
+      padding: 15px var(--guruji-container-padding);
+      background-color: var(--guruji-tab-bg); /* Dark background */
+      border-radius: 8px;
+      margin: 0 var(--guruji-container-padding) 20px;
+      border: 1px solid var(--guruji-border-color);
+  }
+  
+  .inputGroup {
+      margin-bottom: 15px;
+  }
+  .inputGroup:last-child {
+      margin-bottom: 0;
+  }
+  
+  .inputLabel {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--guruji-text-grey);
+      margin-bottom: 6px;
+      text-align: left;
+  }
+  
+  .formInput {
+      width: 100%;
+      background-color: var(--guruji-input-bg);
+      border: 1px solid var(--guruji-input-border);
+      border-radius: 5px;
+      padding: 12px 10px;
+      color: var(--guruji-input-text);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+      box-sizing: border-box;
+  }
+  .formInput:focus {
+      border-color: var(--guruji-input-focus-border);
+  }
+  .formInput::placeholder {
+      color: #666;
+  }
+  /* Remove number input spinners */
+  .formInput[type="number"]::-webkit-outer-spin-button,
+  .formInput[type="number"]::-webkit-inner-spin-button,
+  .formInput[type="tel"]::-webkit-outer-spin-button,
+  .formInput[type="tel"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .formInput[type="number"],
+  .formInput[type="tel"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  
+  /* --- Options Container (Palti & WhatsApp) --- */
+  .optionsContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+      margin-bottom: 15px;
+  }
+  
+  .paltiOption {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+  }
+  
+  .paltiCheckbox {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--guruji-accent-yellow); /* Yellow checkbox */
+      cursor: pointer;
+  }
+  
+  .paltiLabel {
+      font-size: 0.9rem;
+      color: var(--guruji-text-light);
+      cursor: pointer;
+  }
+  
+  .whatsappPasteButton {
+      background-color: var(--guruji-accent-whatsapp);
+      color: var(--guruji-text-light);
+      border: none;
+      border-radius: 5px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s ease;
+  }
+  .whatsappPasteButton svg {
+      font-size: 1.1rem;
+  }
+  .whatsappPasteButton:active {
+      opacity: 0.8;
+  }
+  
+  /* --- Add Bet Button --- */
+  .buttonContainer {
+      margin-top: 15px;
+  }
+  
+  .addButton {
+      width: 100%;
+      padding: 0;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--guruji-add-button-text);
+      background-color: var(--guruji-add-button-bg); /* Green */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+  }
+  .addButton:active {
+      opacity: 0.8;
+  }
+  
+  /* --- WhatsApp Paste Modal --- */
+  .whatsappModalOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1050; /* High z-index */
+      padding: 15px;
+      box-sizing: border-box;
+  }
+  
+  .whatsappModal {
+      background-color: var(--guruji-modal-bg);
+      color: var(--guruji-text-light);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--guruji-modal-border); /* Yellow border */
+      width: 100%;
+      max-width: 400px;
+      position: relative; /* For close button */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .closeModalButton {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: none;
+      border: none;
+      color: var(--guruji-text-grey);
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+  }
+  .closeModalButton:hover {
+      color: var(--guruji-text-light);
+  }
+  
+  .modalTitle {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--guruji-accent-yellow);
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-align: center;
+  }
+  
+  .whatsappTextarea {
+      width: 100%;
+      height: 150px; /* Adjust height */
+      background-color: var(--guruji-input-bg);
+      border: 1px solid var(--guruji-input-border);
+      border-radius: 5px;
+      padding: 10px;
+      color: var(--guruji-input-text);
+      font-size: 0.9rem;
+      outline: none;
+      resize: vertical; /* Allow vertical resize */
+      margin-bottom: 15px;
+      box-sizing: border-box;
+  }
+  .whatsappTextarea:focus {
+      border-color: var(--guruji-input-focus-border);
+  }
+  
+  .modalButtonContainer {
+      text-align: center;
+  }
+  
+  .modalAddButton {
+      /* padding: 10px 20px; */
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--guruji-add-button-text);
+      background-color: var(--guruji-add-button-bg); /* Green */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+  }
+  .modalAddButton:active {
+      opacity: 0.8;
+  }
+  
+  
+  /* --- Preview Area (Shared with Crossing) --- */
+  .previewArea {
+      padding: 0 var(--guruji-container-padding);
+      margin-bottom: 80px; /* Space before fixed summary bar */
+  }
+  
+  .previewTitle {
+      color: var(--guruji-accent-yellow);
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+  }
+  
+  .tableContainer {
+      overflow-x: auto; /* Allow horizontal scrolling if needed */
+      border: 1px solid var(--guruji-border-color);
+      border-radius: 6px;
+      max-height: 300px; /* Limit table height and make scrollable */
+      overflow-y: auto;
+  }
+  
+  .previewTable {
+      width: 100%;
+      border-collapse: collapse;
+      color: var(--guruji-text-light);
+  }
+  
+  .previewTable th,
+  .previewTable td {
+      padding: 8px;
+      text-align: center;
+      border: 1px solid #444;
+      font-size: 0.9rem;
+  }
+  
+  .previewTable th {
+      background-color: var(--guruji-table-header-bg);
+      color: var(--guruji-accent-yellow);
+      font-weight: bold;
+      position: sticky; /* Keep header fixed during scroll */
+      top: 0;
+      z-index: 1;
+  }
+  
+  .previewTable td {
+      background-color: var(--guruji-table-cell-bg);
+  }
+  
+  .deleteButton {
+      background-color: var(--guruji-delete-button-bg); /* Red */
+      color: var(--guruji-delete-button-text);
+      border: none;
+      border-radius: 4px;
+      padding: 4px 6px;
+      cursor: pointer;
+      font-size: 1rem; /* Icon size */
+      line-height: 1; /* Align icon better */
+      transition: opacity 0.2s ease;
+  }
+  .deleteButton:hover {
+      opacity: 0.8;
+  }
+  
+  
+  /* --- Summary Section (Shared with Playground/Crossing) --- */
+  .summaryContainer {
+      position: fixed;
+      bottom: var(--footer-height); /* Position above the footer */
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: var(--guruji-header-bg); /* Black background */
+      border-top: 2px solid var(--guruji-border-color); /* Yellow top border */
+      padding: 10px var(--guruji-container-padding);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 90; /* Below header, above content scroll */
+      box-sizing: border-box;
+  }
+  
+  .totalAmount {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--guruji-text-light);
+  }
+  
+  .playButton {
+      padding: 0 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--guruji-play-button-text); /* Black */
+      background-color: var(--guruji-play-button-bg); /* Yellow */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+  }
+  
+  .playButton:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+  }
+  
+  .playButton:not(:disabled):active {
+    opacity: 0.8;
+  }
+  
+  /* --- Toastify Dark Theme --- */
+  .Toastify__toast-theme--dark {
+      background: #333 !important;
+      color: #fff !important;
+  }
+  .Toastify__close-button--dark {
+      color: #fff !important;
+      opacity: 0.7 !important;
+  }
+  

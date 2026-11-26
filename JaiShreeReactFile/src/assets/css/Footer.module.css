@@ -1,0 +1,496 @@
+/* --- Global Variables (Updated for specific footer colors) --- */
+:root {
+  --primary-bg: #1a1a2d; /* Dark purple/blue (Kept for main page) */
+  --secondary-bg: #24243e; /* Slightly lighter dark (Kept for main page) */
+  --accent-color: #ff6b6b; /* Vibrant coral/red (Kept for main page) */
+  --accent-secondary: #4fd1c5; /* Teal (Kept for main page) */
+  --text-primary: #f0f0f0; /* Light grey (Kept for main page) */
+  --text-secondary: #a0a0b0; /* Medium grey (Kept for main page) */
+  --border-color: rgba(100, 100, 120, 0.3); /* (Kept for main page) */
+  --success-color: #4caf50; /* Green for Play */
+  --error-color: #f44336; /* Red for Timeout/Result/Help Icon */
+  --warning-color: #ffcc00; /* Yellow for border/center button */ /* <- Updated */
+  --card-bg: #ffffff; /* White background for card top */
+  --card-text: #1a1a2d; /* Dark text on card */
+  --time-bar-bg: #3a3a5e; /* Dark blue/purple for time bar */
+  --time-bar-text: #ffffff; /* White text for time bar */
+  --button-gradient: linear-gradient(135deg, var(--accent-secondary), var(--accent-color));
+  --button-hover-gradient: linear-gradient(135deg, #64e2d4, #ff8282);
+  --container-padding: 15px;
+
+  /* --- Footer Specific Variables --- */
+  --footer-height: 65px; /* Increased height slightly for center button room */
+  --footer-bg: #000000; /* Black footer background */
+  --footer-icon-color: #ffffff; /* White icons */
+  --footer-label-color: #ffffff; /* White labels */
+  --footer-border-color: var(--warning-color); /* Yellow top border */
+  --center-button-bg-color: var(--warning-color); /* Yellow center button */
+  --center-button-icon-color: #000000; /* Black center icon */
+  --help-icon-color: var(--error-color); /* Red help icon */
+  --center-button-size: 60px; /* Size of the center button circle */
+  --center-button-bottom-offset: 15px; /* How much the center button pops up from bottom */
+}
+
+/* --- Base Container --- */
+.welcomeContainer {
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding-bottom: var(--footer-height); /* Ensure space for fixed footer */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.contentWrapper {
+  /* Optional: Add padding if header/footer aren't fixed or have margins */
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px var(--container-padding);
+  background-color: var(--secondary-bg);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.headerIcon,
+.headerWallet {
+  color: var(--accent-secondary);
+  font-size: 1.5rem; /* Adjust icon size */
+  text-decoration: none;
+  padding: 5px;
+  transition: color 0.2s ease;
+}
+.headerIcon:hover,
+.headerWallet:hover {
+  color: #ffffff;
+}
+
+.headerWallet {
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid var(--accent-secondary);
+}
+
+.headerTitle {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.headerText {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Carousel --- */
+.carouselContainer {
+  margin: 15px 0; /* Add some space around the carousel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.carouselSlide img.carouselImage {
+  display: block; /* Remove extra space below image */
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 200px; /* Limit banner height */
+  object-fit: cover; /* Ensure image covers the area */
+}
+
+/* --- Button Collection --- */
+.buttonCollection {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px var(--container-padding);
+  gap: 10px; /* Space between buttons */
+}
+
+.actionButton {
+  flex: 1; /* Make buttons share space equally */
+  padding: 12px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  background: var(--button-gradient);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.actionButton:hover {
+  background: var(--button-hover-gradient);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.actionButton:active {
+  transform: scale(0.97);
+}
+
+/* Specific button styling */
+.singleButtonContainer {
+  padding-top: 0; /* Reduce top padding if it's just one button */
+}
+
+.howToPlayButton {
+  background: linear-gradient(135deg, #555, #333); /* Different style for this button */
+  color: #eee;
+}
+.howToPlayButton:hover {
+   background: linear-gradient(135deg, #666, #444);
+}
+
+/* --- Notice Bar --- */
+.noticeBar {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: var(--accent-color);
+  padding: 8px var(--container-padding);
+  margin: 15px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.noticeIcon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.noticeText {
+  flex-grow: 1;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* --- Popup Notice --- */
+.noticePopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(40, 40, 60, 0.95); /* Dark semi-transparent */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--text-primary);
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid var(--accent-secondary);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  z-index: 1050; /* Above footer, below modals if any */
+  max-width: 90%;
+  width: 400px; /* Adjust as needed */
+  text-align: center;
+}
+
+.noticeCloseButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.noticeCloseButton:hover {
+  color: var(--text-primary);
+}
+
+.noticePopupContent {
+  max-height: 60vh; /* Limit height */
+  overflow-y: auto; /* Add scroll if content overflows */
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+/* Style links within the notice */
+.noticePopupContent a {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+/* --- Market List --- */
+.bazarList {
+  padding: 0 var(--container-padding) 20px; /* Bottom padding */
+}
+
+.bazarTitle {
+  text-align: center;
+  color: var(--accent-secondary);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--accent-secondary);
+  padding-bottom: 5px;
+  display: inline-block; /* To make border fit content */
+  position: relative; /* For potential pseudo-elements */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* --- NEW Market Card Styles --- */
+.marketCard {
+  background-color: var(--card-bg); /* White background */
+  color: var(--card-text); /* Dark text */
+  border-radius: 10px; /* Rounded corners */
+  margin-bottom: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden; /* Clip the time bar's corners */
+  border: 1px solid #e0e0e0; /* Light border */
+}
+
+.marketCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+}
+
+.marketCardName {
+  font-weight: bold;
+  font-size: 0.9rem; /* Slightly smaller */
+  flex-basis: 35%; /* Allocate space for name */
+  line-height: 1.3;
+  text-align: left;
+}
+
+.marketCardChart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--card-text);
+  flex-basis: 30%; /* Allocate space for chart/result */
+  text-align: center;
+}
+
+.marketCardResult {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--error-color); /* Red color for result */
+  margin: 0 0 2px 0;
+}
+
+.chartIcon {
+  font-size: 1.1rem; /* Chart icon size */
+  color: var(--card-text); /* Dark icon */
+  margin-bottom: 2px;
+}
+
+.chartLabel {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.marketCardAction {
+  flex-basis: 35%; /* Allocate space for button */
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+}
+
+.marketCardPlayButton {
+  padding: 6px 12px; /* Adjust padding */
+  border-radius: 6px; /* Slightly less rounded */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* Center text */
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  min-width: 80px; /* Ensure minimum width */
+  text-align: center;
+}
+
+.marketCardPlayButton.playActive {
+  background-color: var(--success-color);
+  color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.marketCardPlayButton.playActive:hover {
+  background-color: #388e3c;
+}
+.marketCardPlayButton.playActive:active {
+  transform: scale(0.96);
+}
+
+.marketCardPlayButton.playInactive {
+  background-color: var(--error-color); /* Red background for timeout */
+  color: white;
+  cursor: default; /* Change cursor for inactive */
+}
+
+.marketCardTimeBar {
+  background-color: var(--time-bar-bg); /* Dark blue/purple */
+  color: var(--time-bar-text); /* White text */
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* Style for upcoming markets (optional indicator) */
+.upcomingMarket {
+   /* Keep the border from previous style or add another indicator */
+   border-left: 4px solid var(--warning-color);
+   /* Or maybe change the time bar color */
+   /* .marketCardTimeBar { background-color: #some_other_color; } */
+}
+
+
+/* --- FOOTER STYLES (Updated for specific layout/colors) --- */
+
+.footerContainer {
+  position: fixed; /* Stick to the bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other content */
+  background-color: var(--footer-bg); /* Black background */
+  height: var(--footer-height); /* Use variable */
+  /* Remove direct border/shadow from container */
+}
+
+/* Style for the thick yellow top border */
+.footerTopBorder {
+  height: 4px; /* Adjust thickness */
+  background-color: var(--footer-border-color); /* Yellow */
+  width: 100%;
+  position: absolute; /* Position relative to footerContainer */
+  top: 0;
+  left: 0;
+}
+
+.footerTab {
+  display: flex;
+  /* Use space-between for more control with absolute center */
+  justify-content: space-between;
+  align-items: center; /* Vertically center the side buttons */
+  height: 100%; /* Fill the container height */
+  max-width: 500px; /* Max width for larger screens */
+  margin: 0 auto; /* Center the buttons */
+  position: relative; /* Needed for absolute positioning of center button */
+  padding: 0 var(--container-padding); /* Padding left/right */
+}
+.footerTabs {
+  display: flex;
+  /* Use space-between for more control with absolute center */
+  justify-content: space-between;
+  align-items: center; /* Vertically center the side buttons */
+  height: 100%; /* Fill the container height */
+  max-width: 500px; /* Max width for larger screens */
+  margin: 0; /* Center the buttons */
+  position: relative; /* Needed for absolute positioning of center button */
+  padding: 0 var(--container-padding); /* Padding left/right */
+}
+
+.footerBtnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  text-decoration: none;
+  color: var(--footer-label-color); /* White text */
+  padding: 5px; /* Minimal padding */
+  cursor: pointer;
+  /* Let the center button dictate the space, side buttons take remaining */
+  /* flex-grow: 1; */ /* Remove flex-grow */
+  flex-basis: 20%; /* Give side buttons a base width */
+  max-width: 65px; /* Max width for side buttons */
+  text-align: center;
+  margin: 0 20px 0 0;
+  height: 100%; /* Fill the height */
+  transition: opacity 0.2s ease;
+}
+
+.footerBtnContainer:active {
+  opacity: 0.7; /* Simple feedback on tap */
+}
+
+/* Style for the icons */
+.icon {
+  font-size: 1.3rem; /* Slightly smaller icons */
+  color: var(--footer-icon-color); /* White icons */
+  margin-bottom: 3px; /* Space between icon and text */
+}
+
+/* Style for the text label */
+.label {
+  font-size: 0.6rem; /* Even smaller font size for labels */
+  font-weight: 500;
+  margin: 0; /* Remove default paragraph margin */
+  white-space: nowrap; /* Prevent text wrapping */
+  color: var(--footer-label-color); /* White labels */
+}
+
+/* --- Center Button Specific Styles --- */
+.centerButton {
+  position: absolute; /* Take out of flow */
+  left: 50%;
+  /* Adjust bottom positioning to make it pop up */
+  bottom: var(--center-button-bottom-offset);
+  transform: translateX(-50%); /* Center horizontally */
+  width: var(--center-button-size);
+  height: var(--center-button-size);
+  padding: 0; /* Remove padding */
+  justify-content: center; /* Center the background div */
+  align-items: center; /* Center the background div */
+  z-index: 1; /* Ensure it's above other buttons */
+  /* Remove flex properties */
+  flex-basis: auto;
+  max-width: none;
+}
+
+.centerButtonBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--center-button-bg-color); /* Yellow */
+  border-radius: 50%; /* Make it circular */
+  transform: translateY(-10px);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* More distinct shadow */
+}
+
+.centerIcon {
+  color: var(--center-button-icon-color); /* Black */
+  font-size: 1.8rem; /* Larger icon for center */
+  margin-bottom: 0; /* No margin needed */
+}
+
+/* Hide label for center button */
+.centerButton .label {
+  display: none;
+}
+
+/* --- Help Icon Specific Styles --- */
+.helpIconWrapper {
+  /* Not needed if just coloring the icon */
+}
+
+.helpIcon {
+  color: var(--help-icon-color); /* Red */
+}

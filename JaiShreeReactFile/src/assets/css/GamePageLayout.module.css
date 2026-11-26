@@ -1,0 +1,126 @@
+/* GamePageLayout.module.css */
+
+/* Import or define Guruji theme variables */
+:root {
+    /* Re-define necessary variables if not globally scoped */
+    --guruji-bg: #000000;
+    --guruji-header-bg: #000000;
+    --guruji-header-text: #ffffff;
+    --guruji-border-color: #ffc107; /* Yellow */
+    --guruji-text-light: #ffffff;
+    --guruji-text-dark: #000000;
+    --guruji-text-grey: #adb5bd;
+    --guruji-accent-yellow: #ffc107;
+    --guruji-accent-red: #dc3545; /* Red for message bar */
+    --guruji-container-padding: 10px;
+    --footer-height: 65px; /* Match footer height */
+  }
+  
+  /* --- Main Layout Container --- */
+  .layoutContainer {
+    background-color: var(--guruji-bg);
+    min-height: 100vh;
+    /* Padding bottom is handled by parent component usually */
+    /* padding-bottom: var(--footer-height); */
+    color: var(--guruji-text-light);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* --- Header --- */
+  .gameHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px var(--guruji-container-padding);
+    background-color: var(--guruji-header-bg);
+    color: var(--guruji-header-text);
+    border-bottom: 1px solid var(--guruji-border-color); /* Yellow border */
+    position: sticky; /* Keep header visible */
+    top: 0;
+    z-index: 100; /* Above content */
+  }
+  
+  .gameName {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 10px; /* Space around name */
+    text-transform: uppercase;
+  }
+  
+  .backButton {
+    /* Style your BackButton component or its wrapper */
+    background: none;
+    border: none;
+    color: var(--guruji-text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px; /* Space between back button and name */
+  }
+  
+  .timerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 80px; /* Ensure space for timer */
+    text-align: right;
+  }
+  
+  .timerLabel {
+    font-size: 0.65rem;
+    color: var(--guruji-text-grey);
+    margin: 0;
+    line-height: 1;
+  }
+  
+  .timerValue {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--guruji-accent-yellow); /* Yellow timer */
+    margin: 2px 0 0 0;
+    line-height: 1;
+    font-variant-numeric: tabular-nums; /* Keep numbers aligned */
+  }
+  
+  /* --- Moti Jodi Message Bar --- */
+  .motiJodiBar {
+    background-color: var(--guruji-accent-red); /* Red background */
+    color: var(--guruji-text-light); /* White text */
+    padding: 6px var(--guruji-container-padding);
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  /* --- Custom Message Area (Optional) --- */
+  /* Style the .messageAp class used in the original JSX */
+  .customMessage {
+      background-color: var(--guruji-accent-green); /* Example: Green background */
+      color: var(--guruji-text-light);
+      padding: 8px var(--guruji-container-padding);
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 10px; /* Add space below if needed */
+  }
+  
+  /* --- Game Content Area --- */
+  .gameContent {
+    /* This div holds the children (e.g., the betting tables) */
+    /* Add padding if needed, but often handled by the child component */
+    /* padding: var(--guruji-container-padding); */
+  }
+  
+  /* --- Toastify Dark Theme --- */
+  .Toastify__toast-theme--dark {
+      background: #333 !important;
+      color: #fff !important;
+  }
+  .Toastify__close-button--dark {
+      color: #fff !important;
+      opacity: 0.7 !important;
+  }
+  

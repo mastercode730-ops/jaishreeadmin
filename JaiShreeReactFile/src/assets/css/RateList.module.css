@@ -1,0 +1,132 @@
+/* RateList.module.css */
+
+/* Import or define Guruji theme variables */
+:root {
+    /* Re-define necessary variables if not globally scoped */
+    --guruji-bg: #000000;
+    --guruji-header-bg: #000000;
+    --guruji-header-text: #ffffff;
+    --guruji-border-color: #ffc107; /* Yellow */
+    --guruji-text-light: #ffffff;
+    --guruji-text-dark: #000000;
+    --guruji-text-grey: #adb5bd;
+    --guruji-card-bg: #1f1f1f; /* Dark grey card background */
+    --guruji-card-text: #ffffff;
+    --guruji-rate-win-color: #ffc107; /* Yellow for win rate */
+    --guruji-container-padding: 15px; /* Consistent padding */
+    --footer-height: 65px; /* Match footer height */
+  }
+  
+  /* --- Main Container --- */
+  .rateListContainer {
+    background-color: var(--guruji-bg);
+    min-height: 100vh;
+    padding: 0 0 var(--footer-height); /* Padding for footer */
+    color: var(--guruji-text-light);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* --- Header --- */
+  .rateListHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px var(--guruji-container-padding);
+    background-color: var(--guruji-header-bg);
+    color: var(--guruji-header-text);
+    border-bottom: 1px solid var(--guruji-border-color); /* Yellow border */
+    position: sticky; /* Keep header visible */
+    top: 0;
+    z-index: 100; /* Above content */
+  }
+  
+  .headerTitle {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .backButton {
+    /* Style your BackButton component or its wrapper */
+    background: none;
+    border: none;
+    color: var(--guruji-text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .headerPlaceholder {
+      width: 40px; /* Balance width with back button */
+      height: 10px; /* Just for spacing */
+  }
+  
+  /* --- Rate Card --- */
+  .rateCard {
+    background-color: var(--guruji-card-bg);
+    border: 1px solid var(--guruji-border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 25px var(--guruji-container-padding); /* Margin top/bottom and left/right */
+    color: var(--guruji-card-text);
+    box-shadow: 0 2px 5px rgba(255, 193, 7, 0.15); /* Subtle yellow glow */
+    text-align: center;
+  }
+  
+  .cardTitle {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--guruji-border-color); /* Yellow title */
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+  }
+  
+  .rateItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #444; /* Separator line */
+    font-size: 1.1rem;
+  }
+  .rateItem:last-of-type {
+      border-bottom: none; /* No border on last item */
+  }
+  
+  .rateType {
+    font-weight: 500;
+    color: var(--guruji-text-grey);
+  }
+  
+  .rateWin {
+    font-weight: bold;
+    color: var(--guruji-rate-win-color); /* Yellow win rate */
+  }
+  
+  .smallText {
+      font-size: 0.9em; /* Slightly smaller */
+      font-weight: normal;
+      color: var(--guruji-text-light); /* White text */
+      margin: 0 3px;
+  }
+  
+  .appMention {
+    margin-top: 25px;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: var(--guruji-text-grey);
+    font-style: italic;
+  }
+  
+  /* Optional: Style for description if you add it back */
+  .description {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--guruji-text-light);
+      line-height: 1.5;
+      text-align: left; /* Or center */
+  }
+  

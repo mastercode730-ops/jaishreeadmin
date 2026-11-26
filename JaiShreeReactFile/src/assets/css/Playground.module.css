@@ -1,0 +1,206 @@
+/* Playground.module.css */
+
+/* Import or define Guruji theme variables */
+:root {
+    /* Re-define necessary variables if not globally scoped */
+    --guruji-bg: #000000;
+    --guruji-header-bg: #000000;
+    --guruji-header-text: #ffffff;
+    --guruji-border-color: #ffc107; /* Yellow */
+    --guruji-text-light: #ffffff;
+    --guruji-text-dark: #000000;
+    --guruji-text-grey: #adb5bd;
+    --guruji-accent-yellow: #ffc107;
+    --guruji-accent-green: #28a745;
+    --guruji-accent-red: #dc3545;
+    --guruji-input-bg: #333;
+    --guruji-input-border: #555;
+    --guruji-input-text: #ffffff;
+    --guruji-input-focus-border: var(--guruji-accent-yellow);
+    --guruji-tab-bg: #1f1f1f;
+    --guruji-tab-active-bg: var(--guruji-accent-yellow);
+    --guruji-tab-active-text: var(--guruji-text-dark);
+    --guruji-tab-text: var(--guruji-text-light);
+    --guruji-table-header-bg: #343a40;
+    --guruji-table-cell-bg: #212529;
+    --guruji-play-button-bg: var(--guruji-accent-yellow);
+    --guruji-play-button-text: var(--guruji-text-dark);
+    --guruji-container-padding: 10px;
+    --footer-height: 65px; /* Match footer height */
+  }
+  
+  /* --- Main Betting Area --- */
+  .bettingArea {
+      padding: var(--guruji-container-padding);
+      padding-bottom: 80px; /* Extra space at bottom before summary */
+      background-color: var(--guruji-bg);
+  }
+  
+  /* --- Game Type Tabs --- */
+  .gameList {
+      display: flex;
+      justify-content: space-around;
+      background-color: var(--guruji-tab-bg);
+      padding: 5px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid var(--guruji-border-color);
+  }
+  
+  .gameLink {
+      flex: 1;
+      text-align: center;
+      padding: 8px 5px;
+      text-decoration: none;
+      color: var(--guruji-tab-text);
+      font-weight: bold;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      text-transform: uppercase;
+  }
+  
+  .gameLink:hover {
+      background-color: #444;
+  }
+  
+  .activeGameLink {
+      background-color: var(--guruji-tab-active-bg); /* Yellow */
+      color: var(--guruji-tab-active-text); /* Black */
+  }
+  .activeGameLink:hover {
+      background-color: #e0ac00; /* Darker yellow on hover */
+  }
+  
+  
+  /* --- Table Styling --- */
+  .tableTitle {
+      color: var(--guruji-accent-yellow);
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+  }
+  
+  .tableContainer {
+      overflow-x: auto; /* Allow horizontal scrolling on small screens */
+      border: 1px solid var(--guruji-border-color);
+      border-radius: 6px;
+      margin-bottom: 20px; /* Space between tables */
+  }
+  
+  .betTable {
+      border-collapse: collapse;
+      table-layout: fixed; /* Ensure columns are equal width */
+  }
+  
+  .tableHeader {
+      background-color: var(--guruji-table-header-bg);
+      color: var(--guruji-accent-yellow);
+      padding: 6px 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid #555;
+  }
+  
+  .tableCell {
+      padding: 2px; /* Minimal padding */
+      border: 1px solid #444;
+      text-align: center;
+      background-color: var(--guruji-table-cell-bg);
+  }
+  
+  .betInput {
+      width: 100%;
+      max-width: 50px; /* Limit input width */
+      background-color: var(--guruji-input-bg);
+      border: 1px solid var(--guruji-input-border);
+      color: var(--guruji-input-text);
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 6px 2px; /* Adjust padding */
+      border-radius: 3px;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+      /* Remove number input spinners */
+      -moz-appearance: textfield;
+      appearance: textfield;
+  }
+  .betInput::-webkit-outer-spin-button,
+  .betInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .betInput::placeholder {
+      color: #777;
+  }
+  .betInput:focus {
+      border-color: var(--guruji-input-focus-border);
+  }
+  
+  /* --- Summary Section --- */
+  .summaryContainer {
+      position: fixed;
+      bottom: 0; /* Position above the footer */
+      left: 0;
+      width: 100%;
+      background-color: var(--guruji-header-bg); /* Black background */
+      border-top: 2px solid var(--guruji-border-color); /* Yellow top border */
+      padding: 10px var(--guruji-container-padding);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 90; /* Below header, above content scroll */
+      box-sizing: border-box;
+  }
+  
+  .totalAmount {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--guruji-text-light);
+  }
+  
+  .playButton {
+      padding: 0 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--guruji-play-button-text); /* Black */
+      background-color: var(--guruji-play-button-bg); /* Yellow */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+  }
+  
+  .playButton:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+  }
+  
+  .playButton:not(:disabled):active {
+    opacity: 0.8;
+  }
+  
+  .errorMessage {
+      color: var(--guruji-accent-red);
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+  }
+  
+  /* --- Toastify Dark Theme --- */
+  .Toastify__toast-theme--dark {
+      background: #333 !important;
+      color: #fff !important;
+  }
+  .Toastify__close-button--dark {
+      color: #fff !important;
+      opacity: 0.7 !important;
+  }
+  

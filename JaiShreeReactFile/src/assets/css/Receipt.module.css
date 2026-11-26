@@ -1,0 +1,200 @@
+/* GamingReceipt.module.css */
+
+/* Import a gaming/tech font (e.g., from Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
+
+/* --- Theme Variables --- */
+:root {
+  --background-dark: #1a1a2e; /* Dark blue/purple */
+  --card-background: #23233e;  /* Slightly lighter dark */
+  --accent-color: #00ffcc;     /* Neon cyan/green */
+  --accent-glow: rgba(0, 255, 204, 0.5);
+  --text-primary: #e0e0e0;     /* Light grey text */
+  --text-secondary: #a0a0c0;   /* Slightly dimmer text */
+  --highlight-color: #ffcc00;  /* Yellow for highlighting amounts */
+  --button-hover-bg: #00e6b8;
+  --font-family: 'Rajdhani', sans-serif; /* Gaming/tech font */
+}
+
+.pageBackground {
+  background: radial-gradient(ellipse at center, var(--background-dark) 0%, #0f0f1a 100%);
+  padding: 30px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center card vertically too */
+  font-family: var(--font-family);
+}
+
+.receiptCard {
+  background: var(--card-background);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 25px 30px;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 0 15px var(--accent-glow), 0 0 5px var(--accent-glow) inset;
+  color: var(--text-primary);
+  position: relative; /* Needed for corner elements */
+  overflow: hidden; /* Hide overflow from corners if needed */
+}
+
+/* Optional: Corner Accents */
+.corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-style: solid;
+  border-color: var(--accent-color);
+}
+.topLeft { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.topRight { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.bottomLeft { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+.bottomRight { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 255, 204, 0.3); /* Faint accent border */
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-shadow: 0 0 5px var(--accent-glow);
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+}
+
+/* Base button style */
+.actionButton, .homeButton {
+  background: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: 600;
+  font-family: var(--font-family);
+  transition: all 0.3s ease;
+  display: inline-flex; /* Use flex for icon alignment */
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+.actionButton:hover, .homeButton:hover {
+  background-color: var(--accent-color);
+  color: var(--card-background);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.details {
+  margin-bottom: 25px;
+}
+
+.detailItem {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for long content */
+  align-items: baseline;
+  line-height: 1.5;
+}
+
+.label {
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-right: 8px;
+  flex-shrink: 0; /* Prevent label from shrinking */
+  min-width: 110px; /* Ensure alignment */
+}
+
+.value {
+  color: var(--text-primary);
+  font-size: 1em;
+  word-break: break-word; /* Break long words/IDs */
+}
+
+.highlightValue {
+  color: var(--highlight-color);
+  font-weight: 700;
+}
+
+.transactionId {
+  font-family: 'Courier New', Courier, monospace; /* Monospace for ID */
+  font-size: 0.95em;
+  color: var(--text-secondary);
+  word-break: break-all; /* Ensure long IDs break */
+}
+
+.numbersSection {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.numbersLabel {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px dashed rgba(0, 255, 204, 0.3);
+  padding-bottom: 8px;
+}
+
+.numbersBox {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker transparent background */
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  border-radius: 4px;
+  padding: 15px;
+  text-align: center;
+}
+
+.numberItem {
+  display: inline-block;
+  margin: 5px 15px;
+  font-size: 1em;
+  color: var(--text-primary);
+  background-color: rgba(0, 255, 204, 0.1); /* Slight background tint */
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.numberItem:hover {
+    border-color: var(--accent-color);
+}
+
+.numberValue {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+.numberSeparator {
+  margin: 0 5px;
+  color: var(--text-secondary);
+}
+.numberAmount {
+  font-weight: 600;
+  color: var(--highlight-color);
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 255, 204, 0.3);
+}
+
+.homeButton {
+  /* Inherits base styles, can add specific overrides if needed */
+  padding: 10px 25px; /* Make it slightly larger */
+  font-size: 1.1em;
+}

@@ -1,0 +1,21 @@
+@media screen and (max-width:520px) {
+    .preloader .loader-container {
+        width: 70%;
+    }
+    .modal .section{
+        width: 90%;
+    }
+    .recharge.recharge_box {
+        padding: 10px;
+    }
+}
+@media screen and (min-width:520px) and (max-width:900px) {
+    .preloader .loader-container {
+        width: 40%;
+    }
+}
+@media screen and (min-width: 712px) {
+    .bet-form-container .bet-form .body {
+        width: 97%;
+    }
+}

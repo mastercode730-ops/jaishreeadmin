@@ -1,0 +1,187 @@
+/* GameChart.module.css */
+
+/* Import or define Guruji theme variables */
+:root {
+    /* Re-define necessary variables if not globally scoped */
+    --guruji-bg: #000000;
+    --guruji-header-bg: #000000;
+    --guruji-header-text: #ffffff;
+    --guruji-border-color: #ffc107; /* Yellow */
+    --guruji-text-light: #ffffff;
+    --guruji-text-dark: #000000;
+    --guruji-text-grey: #adb5bd;
+    --guruji-table-header-bg: #343a40; /* Dark grey header */
+    --guruji-table-cell-bg: #1f1f1f; /* Darker cell background */
+    --guruji-table-border: #555; /* Darker border */
+    --guruji-table-row-even-bg: #2a2a2e; /* Slightly different for even rows */
+    --guruji-pagination-button-bg: #343a40;
+    --guruji-pagination-button-disabled-bg: #212529;
+    --guruji-pagination-text: #ffffff;
+    --guruji-container-padding: 10px;
+    --footer-height: 65px; /* Match footer height */
+  }
+  
+  /* --- Main Container --- */
+  .chartContainer {
+    background-color: var(--guruji-bg);
+    min-height: 100vh;
+    padding: 0 0 var(--footer-height); /* Padding for footer */
+    color: var(--guruji-text-light);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* --- Header --- */
+  .chartHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px var(--guruji-container-padding);
+    background-color: var(--guruji-header-bg);
+    color: var(--guruji-header-text);
+    border-bottom: 1px solid var(--guruji-border-color); /* Yellow border */
+    position: sticky; /* Keep header visible */
+    top: 0;
+    z-index: 100; /* Above content */
+  }
+  
+  .headerTitle {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase; /* Make title uppercase */
+  }
+  
+  .backButton {
+    /* Style your BackButton component or its wrapper */
+    background: none;
+    border: none;
+    color: var(--guruji-text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .headerPlaceholder {
+      width: 40px; /* Balance width with back button */
+      height: 10px; /* Just for spacing */
+  }
+  
+  /* --- Table Wrapper --- */
+  .tableWrapper {
+      padding: 15px var(--guruji-container-padding);
+      overflow-x: auto; /* Allow horizontal scroll if needed */
+  }
+  
+  /* --- Chart Table --- */
+  .chartTable {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--guruji-border-color); /* Yellow outer border */
+      box-shadow: 0 1px 3px rgba(255, 193, 7, 0.1);
+  }
+  
+  .chartTable th,
+  .chartTable td {
+      padding: 10px 12px; /* Adjust padding */
+      text-align: center;
+      border: 1px solid var(--guruji-table-border); /* Darker internal borders */
+      font-size: 0.95rem;
+  }
+  
+  .chartTable th {
+      background-color: var(--guruji-table-header-bg);
+      color: var(--guruji-border-color); /* Yellow header text */
+      font-weight: bold;
+      text-transform: uppercase;
+  }
+  
+  .chartTable tbody tr {
+      background-color: var(--guruji-table-cell-bg);
+  }
+  
+  .chartTable tbody tr:nth-child(even) {
+      background-color: var(--guruji-table-row-even-bg); /* Slightly different even row */
+  }
+  
+  .chartTable td:nth-child(2) { /* Style the 'Number' column */
+      font-weight: bold;
+      color: var(--guruji-border-color); /* Yellow number */
+  }
+  
+  /* --- No Data Message --- */
+  .noDataMessage {
+      text-align: center;
+      color: var(--guruji-text-grey);
+      padding: 40px 0;
+      font-size: 1rem;
+  }
+  
+  
+  /* --- Pagination --- */
+  .pagination {
+    padding: 15px var(--guruji-container-padding);
+    margin-top: 10px;
+    border-top: 1px solid var(--guruji-border-color); /* Separator line */
+  }
+  
+  .pageBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--guruji-pagination-text);
+  }
+  
+  .pageInfo {
+    font-size: 0.9rem;
+    color: var(--guruji-text-grey);
+  }
+  .pageInfo span { /* Style for "1-10" part if added */
+      font-weight: bold;
+      color: var(--guruji-text-light);
+      margin-right: 5px;
+  }
+  
+  .pageBtnContainer {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .pageButton {
+    background-color: var(--guruji-pagination-button-bg);
+    color: var(--guruji-pagination-text);
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 1.2rem; /* Icon size */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+  
+  .pageButton:disabled {
+    background-color: var(--guruji-pagination-button-disabled-bg);
+    color: #666;
+    cursor: not-allowed;
+  }
+  
+  .pageButton:not(:disabled):hover {
+    background-color: #495057;
+  }
+  
+  /* --- Toastify Dark Theme --- */
+  .Toastify__toast-theme--dark {
+      background: #333 !important;
+      color: #fff !important;
+  }
+  .Toastify__close-button--dark {
+      color: #fff !important;
+      opacity: 0.7 !important;
+  }
+  

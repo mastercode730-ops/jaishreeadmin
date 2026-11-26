@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+JaiShreeReactFile/node_modules/
+JaiShreeAdmin/vendor/
+
+# Build outputs
+JaiShreeReactFile/build/
+
+# Environment & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production
+.env.production.local
+*firebase-service-account*.json
+!**/firebase-service-account.example.json
+
+# Database dumps, backups & archives
+*.sql
+!JaiShreeAdmin/database/migrations/*.sql
+*.bak
+*.zip
+
+# Uploads & runtime artifacts
+JaiShreeAdmin/uploads/payment_screenshots/
+error_log
+*.log
+.ftpquota
+
+# Scratch & OS metadata
+scratch/
+__MACOSX/
+.DS_Store
+Thumbs.db
+
+# User-uploaded documents (may contain personal data); keep the folders only
+JaiShreeAdmin/assets/document/*
+JaiShreeAdmin/assets/Distributor/*
+!JaiShreeAdmin/assets/document/.gitkeep
+!JaiShreeAdmin/assets/Distributor/.gitkeep
+
+# Server logs and one-time SSL challenge files
+JaiShreeAdmin/application/logs/log-*.php
+JaiShreeAdmin/.well-known/acme-challenge/

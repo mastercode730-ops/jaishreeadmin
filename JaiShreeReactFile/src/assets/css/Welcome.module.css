@@ -1,0 +1,433 @@
+/* Welcome.module.css */
+
+/* --- Global Variables (Guruji Design) --- */
+:root {
+    --guruji-bg: #000000; /* Black background */
+    --guruji-header-bg: #000000; /* Black header */
+    --guruji-header-text: #ffffff; /* White header text */
+    --guruji-wallet-bg: #ffc107; /* Yellow */
+    --guruji-wallet-text: #000000; /* Black wallet text */
+    --guruji-menu-icon-bg: #ffc107; /* Yellow */
+    --guruji-menu-icon-color: #000000;
+  
+    --guruji-notice-banner-bg: #dc3545; /* Red */
+    --guruji-notice-banner-text: #ffffff;
+  
+    --guruji-action-whatsapp-bg: #25d366;
+    --guruji-action-telegram-bg: #0088cc;
+    --guruji-action-addfund-bg: #ffc107; /* Yellow */
+    --guruji-action-addfund-text: #000000;
+    --guruji-action-withdraw-bg: #dc3545; /* Red */
+    --guruji-action-button-text: #ffffff;
+  
+    --guruji-market-card-border: #ffc107; /* Yellow */
+    --guruji-market-card-bg: #1f1f1f; /* Very dark grey */
+    --guruji-market-header-bg: #000000;
+    --guruji-market-header-text: #ffc107; /* Yellow */
+    --guruji-market-body-bg: #ffffff; /* White body */
+    --guruji-market-text-dark: #000000; /* Black text on white */
+    --guruji-market-text-light: #ffffff; /* White text on dark */
+    --guruji-market-text-grey: #f4f6f8; /* Grey for labels/footer */
+    --guruji-market-result-old-bg: #ec0219; /* Red */
+    --guruji-market-result-new-bg: #068023; /* Green */
+    --guruji-market-play-button-bg: #28a745; /* Green */
+    --guruji-market-timeout-button-bg: #c00517; /* Red */
+    --guruji-market-button-text: #ffffff;
+  
+    --guruji-container-padding: 10px;
+  
+    /* Footer variables (keep from previous version) */
+    --footer-height: 65px;
+    --footer-bg: #000000;
+    --footer-icon-color: #ffffff;
+    --footer-label-color: #ffffff;
+    --footer-border-color: #ffc107; /* Yellow */
+    --center-button-bg-color: #ffc107; /* Yellow */
+    --center-button-icon-color: #000000; /* Black */
+    --help-icon-color: #dc3545; /* Red */
+    --center-button-size: 60px;
+    --center-button-bottom-offset: 15px;
+  }
+  
+  /* --- Base Container --- */
+  .gurujiContainer {
+    background-color: var(--guruji-bg);
+    color: var(--guruji-market-text-light); /* Default light text */
+    min-height: 100vh;
+    padding-bottom: var(--footer-height); /* Space for fixed footer */
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* --- Header --- */
+  .gurujiHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px var(--guruji-container-padding);
+    background-color: var(--guruji-header-bg);
+    color: var(--guruji-header-text);
+  }
+  
+  .gurujiHeaderMenuBtn {
+    background-color: var(--guruji-menu-icon-bg);
+    color: var(--guruji-menu-icon-color);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .gurujiHeaderTitle {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-grow: 1;
+    text-align: center;
+    padding: 0 10px;
+  }
+  
+  .gurujiHeaderWallet {
+    background-color: var(--guruji-wallet-bg);
+    color: var(--guruji-wallet-text);
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  /* --- Top Notice Banner --- */
+  .gurujiTopNoticeBanner {
+    background-color: var(--guruji-notice-banner-bg);
+    color: var(--guruji-notice-banner-text);
+    padding: 10px var(--guruji-container-padding);
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    position: relative; /* For potential close button */
+  }
+  /* Style links within the banner if needed */
+  .gurujiTopNoticeBanner a {
+    color: var(--guruji-wallet-bg); /* Yellow links */
+    text-decoration: underline;
+  }
+  /* Optional close button styling */
+  /* .gurujiNoticeClose { ... } */
+  
+  
+  /* --- Action Buttons --- */
+  .gurujiActionButtons {
+    display: grid; /* Use grid for flexible layout */
+    /* Adjust columns based on whether Telegram is present */
+    /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+    grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+    gap: 8px;
+    padding: 12px var(--guruji-container-padding);
+  }
+  
+  /* Style for 4 buttons if Telegram exists */
+  /* This requires the container to have a child with the .gurujiTelegram class */
+  /* If you don't use CSS modules, you might need JS to add a class to the container */
+  /* With CSS Modules, this :has selector might not work reliably across all build tools/browsers yet */
+  /* Consider adding a conditional class in your JSX instead */
+  /* Example: className={`${styles.gurujiActionButtons} ${TelegramLink ? styles.hasFourButtons : ''}`} */
+  /* Then style .hasFourButtons { grid-template-columns: repeat(4, 1fr); } */
+  .gurujiActionButtons:has(.gurujiTelegram) {
+     grid-template-columns: repeat(4, 1fr);
+  }
+  
+  
+  .gurujiActionButton {
+    padding: 8px 5px; /* Vertical padding */
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--guruji-action-button-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease;
+    text-align: center; /* Center text if it wraps */
+  }
+  .gurujiActionButton:active { opacity: 0.8; }
+  .gurujiActionButton svg { font-size: 1.1rem; } /* Icon size */
+  
+  /* Specific button colors */
+  .gurujiWhatsapp { background-color: var(--guruji-action-whatsapp-bg); }
+  .gurujiTelegram { background-color: var(--guruji-action-telegram-bg); }
+  .gurujiAddFund { background-color: var(--guruji-action-addfund-bg); color: var(--guruji-action-addfund-text); }
+  .gurujiWithdraw { background-color: var(--guruji-action-withdraw-bg); }
+  
+  .gurujiAddFundIcon { font-weight: bold; font-size: 1rem; }
+  
+  
+  /* --- Market List --- */
+  .gurujiMarketList {
+    padding: 10px var(--guruji-container-padding);
+  }
+  
+  .gurujiMarketCard {
+    border: 2px solid var(--guruji-market-card-border); /* Thick yellow border */
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1); /* Subtle shadow on dark bg */
+    overflow: hidden;
+    background-color: var(--guruji-market-card-bg); /* Card background */
+  }
+  
+  .gurujiMarketCardHeader {
+    background-color: var(--guruji-market-header-bg);
+    color: var(--guruji-market-header-text);
+    padding: 8px 12px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+  
+  .gurujiMarketCardBody {
+    display: grid; /* Use grid for precise column alignment */
+    grid-template-columns: auto 1fr auto; /* Chart | Results | Button */
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+    background-color: var(--guruji-market-text-dark);
+    color: var(--guruji-market-body-bg);
+  }
+  
+  .gurujiMarketChartLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--guruji-market-text-grey);
+    text-align: center;
+    padding-right: 5px;
+    width: 69px;
+  }
+  .gurujiMarketChartLink span{
+    font-size: 9.5px;
+  }
+  .gurujiMarketChartLink svg {
+    font-size: 1.6rem; /* Larger chart icon */
+    margin-bottom: 2px;
+    color: white; /* Dark icon */
+  }
+  
+  .gurujiMarketResultSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    /* border-left: 1px solid #eee;
+    border-right: 1px solid #eee; */
+    padding: 0 8px; /* Padding around results */
+  }
+  
+  .gurujiResultLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem; /* Larger result number */
+    line-height: 1;
+    padding: 4px 8px; /* Padding inside result box */
+    border-radius: 4px;
+    color: var(--guruji-market-text-light); /* White number */
+    min-width: 15px; /* Ensure minimum width */
+  }
+  .gurujiResultLabel small {
+    font-size: 0.6rem;
+    font-weight: normal;
+    color: inherit; /* Inherit color (white) */
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+  
+  .gurujiMarketResultOld {
+    background-color: var(--guruji-market-result-old-bg); /* Red background */
+  }
+  
+  .gurujiMarketResultNew {
+    background-color: var(--guruji-market-result-new-bg); /* Green background */
+  }
+  
+  .gurujiResultSeparator {
+    font-size: 0.9rem;
+    color: var(--guruji-market-text-grey); /* Dark arrow */
+    margin: 0 5px;
+  }
+  
+  .gurujiMarketPlayButtonContainer {
+     display: flex;
+     justify-content: center; /* Center button within its column */
+     padding-left: 5px; /* Add some space */
+  }
+  
+  .gurujiMarketPlayButton {
+    padding: 8px 10px; /* Adjust padding */
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    min-width: 55px;
+    text-align: center;
+    color: var(--guruji-market-button-text);
+  }
+  
+  .gurujiPlayIcon {
+     font-size: 0.7rem;
+  }
+  
+  .gurujiMarketPlayButton.gurujiPlayActive {
+    background-color: var(--guruji-market-play-button-bg); /* Green */
+  }
+  .gurujiMarketPlayButton.gurujiPlayActive:active {
+    opacity: 0.8;
+  }
+  
+  .gurujiMarketPlayButton.gurujiPlayInactive {
+    background-color: var(--guruji-market-timeout-button-bg); /* Red */
+    cursor: default;
+  }
+  
+  .gurujiMarketCardFooter {
+    background-color: var(--guruji-market-card-bg); /* Match card background */
+    color: var(--guruji-market-text-grey); /* Grey text */
+    padding: 6px 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-top: 1px solid var(--guruji-market-card-border); /* Yellow separator */
+  }
+  
+  /* Optional: Style for upcoming markets (maybe less prominent border?) */
+  .gurujiUpcomingMarket {
+     /* border-color: #555; */ /* Example: Grey border */
+  }
+  
+  
+  /* --- Footer Styles (Copied from previous version - Ensure they are correct) --- */
+  .footerContainer {
+    position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000;
+    background-color: var(--footer-bg); height: var(--footer-height);
+  }
+  .footerTopBorder {
+    height: 4px; background-color: var(--footer-border-color); width: 100%;
+    position: absolute; top: 0; left: 0;
+  }
+  .footerTab {
+    display: flex; justify-content: space-between; align-items: center;
+    height: 100%; max-width: 500px; margin: 0 auto; position: relative;
+    padding: 0 var(--guruji-container-padding); /* Use new padding */
+  }
+  .footerBtnContainer {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-decoration: none; color: var(--footer-label-color); padding: 5px;
+    cursor: pointer; flex-basis: 20%; max-width: 65px; text-align: center;
+    height: 100%; transition: opacity 0.2s ease;
+  }
+  .footerBtnContainer:active { opacity: 0.7; }
+  .icon {
+    font-size: 1.3rem; color: var(--footer-icon-color); margin-bottom: 3px;
+  }
+  .label {
+    font-size: 0.6rem; font-weight: 500; margin: 0; white-space: nowrap;
+    color: var(--footer-label-color);
+  }
+  .centerButton {
+    position: absolute; left: 50%; bottom: var(--center-button-bottom-offset);
+    transform: translateX(-50%); width: var(--center-button-size); height: var(--center-button-size);
+    padding: 0; justify-content: center; align-items: center; z-index: 1;
+    flex-basis: auto; max-width: none;
+  }
+  .centerButtonBackground {
+    display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;
+    background-color: var(--center-button-bg-color); border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  }
+  .centerIcon {
+    color: var(--center-button-icon-color); font-size: 1.8rem; margin-bottom: 0;
+  }
+  .centerButton .label { display: none; }
+  .helpIconWrapper { /* Optional */ }
+  .helpIcon { color: var(--help-icon-color); }
+  /* --- End Footer Styles --- */
+  
+  
+  /* --- Preloader / Toast / Other existing styles --- */
+  /* Ensure styles for Preloader, ToastContainer etc. are present */
+  /* Add any necessary overrides if theme conflicts */
+  .Toastify__toast-theme--dark {
+      background: #333 !important;
+      color: #fff !important;
+  }
+  .Toastify__close-button--dark {
+      color: #fff !important;
+      opacity: 0.7 !important;
+  }
+  
+  
+  /* --- Popup Notice (Copied from previous version - check if needed) --- */
+  /* Styles for .noticePopup, .noticeCloseButton, .noticePopupContent remain */
+  /* You might want to adjust the background/colors to match the new theme */
+  .noticePopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9); /* Darker overlay */
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    color: #eee; /* Lighter text */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--guruji-market-card-border); /* Yellow border */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    z-index: 1050;
+    max-width: 90%;
+    width: 350px; /* Adjust width */
+    text-align: center;
+  }
+  .noticeCloseButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+  }
+  .noticeCloseButton:hover { color: #fff; }
+  .noticePopupContent {
+    max-height: 60vh;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .noticePopupContent a { color: var(--guruji-market-card-border); text-decoration: underline; }
+  /* --- --- */
+  

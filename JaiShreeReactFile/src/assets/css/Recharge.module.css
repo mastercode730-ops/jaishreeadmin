@@ -1,0 +1,528 @@
+/* Recharge.module.css */
+
+/* Import or define Guruji theme variables */
+:root {
+    /* Re-define necessary variables if not globally scoped */
+    --guruji-bg: #000000;
+    --guruji-header-bg: #000000;
+    --guruji-header-text: #ffffff;
+    --guruji-wallet-bg: #ffc107; /* Yellow */
+    --guruji-border-color: #ffc107; /* Yellow */
+    --guruji-text-light: #ffffff;
+    --guruji-text-dark: #000000;
+    --guruji-text-grey: #adb5bd;
+    --guruji-button-primary-bg: #ffc107; /* Yellow for primary actions */
+    --guruji-button-primary-text: #000000;
+    --guruji-button-secondary-bg: #343a40; /* Dark grey for secondary */
+    --guruji-button-secondary-text: #ffffff;
+    --guruji-input-bg: #333;
+    --guruji-input-border: #555;
+    --guruji-input-text: #ffffff;
+    --guruji-input-focus-border: #ffc107; /* Yellow */
+    --guruji-container-padding: 10px;
+    --footer-height: 65px; /* Match footer height */
+  }
+  
+  /* --- Main Container --- */
+  .rechargeContainer {
+    background-color: var(--guruji-bg);
+    min-height: 100vh;
+    padding: 0 0 var(--footer-height); /* Only bottom padding for footer */
+    color: var(--guruji-text-light);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* --- Header --- */
+  .rechargeHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px var(--guruji-container-padding);
+    background-color: var(--guruji-header-bg);
+    color: var(--guruji-header-text);
+    border-bottom: 1px solid var(--guruji-border-color); /* Yellow border */
+    position: sticky; /* Keep header visible */
+    top: 0;
+    z-index: 100; /* Above content */
+  }
+  
+  .headerTitle {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .backButton {
+    /* Style your BackButton component or its wrapper */
+    background: none;
+    border: none;
+    color: var(--guruji-text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .historyLink svg{
+    font-size: 1.5rem;
+  }
+  .historyLink {
+    color: var(--guruji-text-light);
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+  .historyLink:hover {
+      color: var(--guruji-border-color);
+  }
+  
+  /* --- Recharge Box --- */
+  .rechargeBox {
+    background-color: var(--guruji-bg); /* Match background */
+    padding: 25px var(--guruji-container-padding);
+    margin: 20px var(--guruji-container-padding); /* Add margin */
+    border-radius: 8px;
+    border: 1px solid var(--guruji-border-color); /* Yellow border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.2); /* Subtle yellow glow */
+  }
+  
+  .rechargeLogo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      border-radius: 50%;
+      border: 2px solid var(--guruji-border-color);
+  }
+  
+  .balanceDisplay {
+    background-color: var(--guruji-wallet-bg); /* Yellow */
+    color: var(--guruji-wallet-text); /* Black */
+    padding: 8px 15px;
+    border-radius: 20px; /* Pill shape */
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    display: inline-block; /* Fit content */
+  }
+  
+  .inputLabel {
+      font-size: 0.9rem;
+      color: var(--guruji-text-grey);
+      margin-bottom: 8px;
+      align-self: flex-start; /* Align label left */
+  }
+  
+  .inputContainer {
+      display: flex;
+      align-items: center;
+      background-color: var(--guruji-input-bg);
+      border: 1px solid var(--guruji-input-border);
+      border-radius: 5px;
+      padding: 0 10px; /* Padding left/right */
+      margin-bottom: 20px;
+      width: 95%;
+      transition: border-color 0.2s ease;
+  }
+  .inputContainer:focus-within {
+      border-color: var(--guruji-input-focus-border); /* Yellow border on focus */
+  }
+  
+  .currencySymbol {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--guruji-text-grey);
+      padding-right: 8px;
+  }
+  
+  .amountInput {
+    flex-grow: 1; /* Take available space */
+    background-color: transparent;
+    border: none;
+    color: var(--guruji-input-text);
+    font-size: 1.5rem; /* Larger font for amount */
+    padding: 12px 0; /* Vertical padding */
+    outline: none;
+    width: 100%; /* Ensure it fills container */
+    /* Remove number input spinners */
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  .amountInput::-webkit-outer-spin-button,
+  .amountInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .amountInput::placeholder {
+      color: #666;
+      font-size: 1.5rem;
+  }
+  
+  
+  /* --- Recommended Amount Buttons --- */
+  .recommendedAmount {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  
+  .amountButton {
+    /* padding: 10px 5px; Adjust padding */
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--guruji-button-secondary-text);
+    background-color: var(--guruji-button-secondary-bg); /* Dark grey */
+    border: 1px solid #555;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .amountButton:hover {
+    background-color: #495057;
+    border-color: #666;
+  }
+  .amountButton:active {
+    background-color: #5a6268;
+  }
+  
+  /* --- Pay Button --- */
+  .payButtonContainer {
+      width: 100%;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+  }
+  .payButton {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--guruji-button-primary-text); /* Black */
+    background-color: var(--guruji-button-primary-bg); /* Yellow */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    min-height: 48px;
+    box-sizing: border-box;
+  }
+  
+  .payButton:active {
+    opacity: 0.8;
+    transform: scale(0.99);
+  }
+
+  .qrButton {
+    background-color: #0d6efd; /* Vibrant blue */
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .qrButton:hover {
+    background-color: #0b5ed7;
+  }
+
+  /* --- QR Code Modal --- */
+  .qrModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    padding: 15px 15px 90px 15px; /* Extra bottom padding to clear footer navbar */
+  }
+
+  .qrModal {
+    background-color: #1a1a1a;
+    border: 1px solid var(--guruji-border-color);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px 20px 30px 20px;
+    box-shadow: 0 5px 25px rgba(255, 193, 7, 0.35);
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+  }
+
+  .modalTitle {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--guruji-wallet-bg);
+    margin: 0;
+  }
+
+  .closeButton {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .qrCardBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .qrTagBadge {
+    background: #333;
+    color: var(--guruji-wallet-bg);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 15px;
+    border: 1px solid var(--guruji-border-color);
+  }
+
+  .qrImageWrapper {
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .qrImage {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+  }
+
+  .upiDetailsBox {
+    background: #252525;
+    border: 1px dashed #444;
+    border-radius: 8px;
+    padding: 10px 14px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .upiIdText {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    word-break: break-all;
+  }
+
+  .copyBtn {
+    background: var(--guruji-button-primary-bg);
+    color: #000;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  /* --- Bank Transfer Section --- */
+  .bankTransferSection {
+    background: #1c1c1e;
+    border: 1px solid #3a3a3c;
+    border-radius: 8px;
+    padding: 12px 14px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bankSectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--guruji-wallet-bg);
+    border-bottom: 1px solid #333;
+    padding-bottom: 6px;
+    margin-bottom: 2px;
+  }
+
+  .bankIcon {
+    font-size: 1rem;
+    color: var(--guruji-wallet-bg);
+  }
+
+  .bankRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+
+  .bankLabel {
+    color: var(--guruji-text-grey);
+    font-weight: 500;
+  }
+
+  .bankVal {
+    color: #fff;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .bankValMono {
+    color: #ffd043;
+    font-family: monospace, monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .bankValWithCopy {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .copyBtnSmall {
+    background: var(--guruji-button-primary-bg);
+    color: #000;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+
+  .copyBtnSmall:hover {
+    opacity: 0.85;
+  }
+
+  .uploadSection {
+    width: 100%;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 15px;
+  }
+
+  .uploadLabel {
+    font-size: 0.85rem;
+    color: var(--guruji-text-grey);
+    font-weight: 600;
+    text-align: left;
+    display: block;
+    width: 100%;
+  }
+
+  .fileInput {
+    background: var(--guruji-input-bg);
+    color: #fff;
+    border: 1px solid var(--guruji-input-border);
+    border-radius: 6px;
+    padding: 10px;
+    width: 100%;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+  }
+
+  .ssPreviewBox {
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .ssPreviewImg {
+    max-width: 110px;
+    max-height: 110px;
+    border-radius: 6px;
+    border: 1px solid var(--guruji-border-color);
+  }
+
+  .utrInput {
+    background: var(--guruji-input-bg);
+    border: 1px solid var(--guruji-input-border);
+    border-radius: 6px;
+    color: #fff;
+    padding: 12px;
+    width: 100%;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+  .utrInput:focus {
+    border-color: var(--guruji-input-focus-border);
+    outline: none;
+  }
+
+  .submitQrBtn {
+    background: #198754;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 14px rgba(25, 135, 84, 0.45);
+    transition: background 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    min-height: 48px;
+    box-sizing: border-box;
+  }
+  .submitQrBtn:hover {
+    background: #157347;
+  }
+  .submitQrBtn:active {
+    transform: scale(0.99);
+  }
+
+  /* --- Toastify Dark Theme (if needed) --- */
+  .Toastify__toast-theme--dark {
+      background: #333 !important;
+      color: #fff !important;
+  }
+  .Toastify__close-button--dark {
+      color: #fff !important;
+      opacity: 0.7 !important;
+  }
+  

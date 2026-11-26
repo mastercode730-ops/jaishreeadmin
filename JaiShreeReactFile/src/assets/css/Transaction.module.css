@@ -1,0 +1,237 @@
+/* Transaction.module.css */
+
+/* Import or define Guruji theme variables */
+:root {
+    /* Re-define necessary variables if not globally scoped */
+    --guruji-bg: #000000;
+    --guruji-header-bg: #000000;
+    --guruji-header-text: #ffffff;
+    --guruji-wallet-bg: #ffc107; /* Yellow */
+    --guruji-border-color: #ffc107; /* Yellow */
+    --guruji-text-light: #ffffff;
+    --guruji-text-dark: #000000;
+    --guruji-text-grey: #adb5bd;
+    --guruji-text-red: #dc3545; /* Red for debit/cancel */
+    --guruji-text-green: #28a745; /* Green for credit */
+    --guruji-card-bg: #1f1f1f; /* Dark grey card background */
+    --guruji-pagination-button-bg: #343a40;
+    --guruji-pagination-button-disabled-bg: #212529;
+    --guruji-pagination-text: #ffffff;
+    --guruji-container-padding: 10px;
+    --footer-height: 65px; /* Match footer height */
+  }
+  
+  /* --- Main Container --- */
+  .transactionContainer {
+    background-color: var(--guruji-bg);
+    min-height: 100vh;
+    padding: 0 0 var(--footer-height); /* Only bottom padding for footer */
+    color: var(--guruji-text-light);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* --- Header --- */
+  .transactionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px var(--guruji-container-padding);
+    background-color: var(--guruji-header-bg);
+    color: var(--guruji-header-text);
+    border-bottom: 1px solid var(--guruji-border-color); /* Yellow border */
+    position: sticky; /* Keep header visible */
+    top: 0;
+    z-index: 100; /* Above content */
+  }
+  
+  .headerTitle {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .backButton {
+    /* Style your BackButton component or its wrapper */
+    background: none;
+    border: none;
+    color: var(--guruji-text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .headerPlaceholder {
+      width: 40px; /* Balance width with back button */
+      height: 10px; /* Just for spacing */
+  }
+  
+  /* --- History List --- */
+  .historyList {
+      padding: 15px var(--guruji-container-padding);
+      display: flex;
+      flex-direction: column;
+      gap: 12px; /* Space between history items */
+  }
+  
+  /* --- MarketTable Card Styles --- */
+  .historyCard {
+    background-color: var(--guruji-card-bg);
+    border: 1px solid var(--guruji-border-color);
+    border-radius: 6px;
+    padding: 12px 15px;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+  }
+  
+  .cardRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px; /* Space between rows */
+  }
+  .cardRow:last-child {
+    margin-bottom: 0; /* No margin on last row */
+  }
+  
+  .gameDetails {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--guruji-text-light);
+  }
+  
+  .gameNumber {
+      font-weight: bold;
+      color: var(--guruji-border-color); /* Yellow game number */
+  }
+  
+  .amount {
+    font-size: 0.95rem;
+    font-weight: bold;
+  }
+  
+  .debit {
+    color: var(--guruji-text-red); /* Red for debit */
+  }
+  
+  .credit {
+    color: var(--guruji-text-green); /* Green for credit */
+  }
+  
+  .dateTime {
+    font-size: 0.75rem;
+    color: var(--guruji-text-grey);
+  }
+  
+  .cancelButton {
+    background-color: var(--guruji-text-red);
+    color: var(--guruji-text-light);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: opacity 0.2s ease;
+  }
+  .cancelButton svg {
+      font-size: 0.9rem;
+  }
+  .cancelButton:hover {
+    opacity: 0.85;
+  }
+  
+  .statusPlaceholder {
+      min-width: 60px; /* Reserve space similar to button */
+      display: inline-block; /* Allow width */
+      height: 10px; /* Just for layout */
+  }
+  
+  /* --- Generic Table Styles (if needed for other history types) --- */
+  /* Add styles for your 'Table' component here if it's used */
+  /* Example: */
+  /* .genericTable { ... } */
+  /* .genericTableRow { ... } */
+  
+  /* --- No Data Message --- */
+  .noDataMessage {
+      text-align: center;
+      color: var(--guruji-text-grey);
+      padding: 30px 0;
+      font-size: 1rem;
+  }
+  
+  /* --- Pagination --- */
+  .pagination {
+    padding: 15px var(--guruji-container-padding);
+    margin-top: 10px;
+    border-top: 1px solid var(--guruji-border-color); /* Separator line */
+  }
+  
+  .pageBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--guruji-pagination-text);
+  }
+  
+  .pageInfo {
+    font-size: 0.9rem;
+    color: var(--guruji-text-grey);
+  }
+  .pageInfo span { /* Style for "1-10" part if added */
+      font-weight: bold;
+      color: var(--guruji-text-light);
+      margin-right: 5px;
+  }
+  
+  .pageBtnContainer {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .pageButton {
+    background-color: var(--guruji-pagination-button-bg);
+    color: var(--guruji-pagination-text);
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 1.2rem; /* Icon size */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+  
+  .pageButton:disabled {
+    background-color: var(--guruji-pagination-button-disabled-bg);
+    color: #666;
+    cursor: not-allowed;
+  }
+  
+  .pageButton:not(:disabled):hover {
+    background-color: #495057;
+  }
+  
+  /* --- Toastify Dark Theme --- */
+  .Toastify__toast-theme--dark {
+      background: #333 !important;
+      color: #fff !important;
+  }
+  .Toastify__close-button--dark {
+      color: #fff !important;
+      opacity: 0.7 !important;
+  }
+  
+  .trn-container p {
+    font-size: 13px ;
+    color: #ffffff !important;
+    font-weight: 900;
+}

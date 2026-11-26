@@ -6,7 +6,6 @@ import Crossing from './components/Crossing';
 import Mine from './components/mine';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
-import KhaiwalPage from './components/KhaiwalPage';
 import GameChart from './components/GameChart';
 import Privacypolicy from './components/pages/Privacy_policy';
 import RateList from './components/pages/RateList';

@@ -14,7 +14,7 @@ function GameChart() {
   const { id } = useParams(); // Game ID
   const [preloader, setPreloader] = useState(true);
   const [data, setData] = useState([]); // Chart data
-  const [pagenumber, setPagenumber] = useState(1); // Keep for potential future use
+  const [pagenumber] = useState(1); // Keep for potential future use
   const [Name, setName] = useState("Loading..."); // Game Name
   // const [new_message, setnew_message] = useState(""); // Replaced with toast
   const { isAuthenticated, GameChart: fetchGameChart } = useContext(AuthContext); // Renamed context function
@@ -27,12 +27,6 @@ function GameChart() {
     }
   }, [isAuthenticated, navigate]);
 
-
-  // Function to capitalize the first letter
-  function capitalize(str) {
-    if (typeof str !== "string" || str.length === 0) return "";
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
 
   // Toast message function
   const message = (status, text) => {

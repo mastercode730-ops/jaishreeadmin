@@ -6,7 +6,7 @@ import { AuthContext } from "../context/AuthContext"; // Adjust path
 import { useSwipeable } from "react-swipeable";
 import GamePageLayout from "./GamePageLayout"; // Adjust path
 import styles from '../assets/css/Playground.module.css'; // Import CSS Module
-import Preloader from "./Preloader";
+
 
 function Playground() {
   const { id } = useParams(); // Game ID

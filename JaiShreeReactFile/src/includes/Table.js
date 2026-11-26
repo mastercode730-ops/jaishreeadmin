@@ -1,5 +1,4 @@
 import React from 'react';
-import { MdOutlineDelete } from "react-icons/md";
 import styles from '../assets/css/Transaction.module.css'; // Import the SAME CSS module
 
 const Table = ({ key, data,purpose }) => {
@@ -27,8 +26,8 @@ const Table = ({ key, data,purpose }) => {
     }
   }
   let Status = (isCreditAction(data.description));
-  if(data.purpose != ""){
-    Status = data.purpose == 'credit' ? true : false;
+  if(data.purpose !== ""){
+    Status = data.purpose === 'credit' ? true : false;
   }
 
   return (

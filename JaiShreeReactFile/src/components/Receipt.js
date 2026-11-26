@@ -67,10 +67,7 @@ function Receipt() {
     }
   };
 
-  const handleGoHome = () => {
-    console.log('Home Clicked');
-    alert('Home navigation not implemented yet.');
-  };
+  // const handleGoHome = () => { alert('Home navigation not implemented yet.'); };
 
   return (
     // Note: html2canvas will capture the background of the TARGET element (receiptCard).

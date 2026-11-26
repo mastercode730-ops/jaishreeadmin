@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // Import appropriate icons (adjust based on the exact style you want)
 import { FaHistory, FaShareAlt, FaUserAlt, FaQuestionCircle } from "react-icons/fa"; // Example icons
 import { MdHome } from "react-icons/md";
@@ -8,7 +8,6 @@ import styles from '../assets/css/Footer.module.css'; // Import CSS Module
 
 function Footer() {
   const { WhastappMessage } = useContext(AuthContext);
-  const location = useLocation();
 
   const isLoggedIn = !!localStorage.getItem('login');
 

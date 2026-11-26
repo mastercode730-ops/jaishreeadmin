@@ -6,10 +6,9 @@ import Footer from "../../includes/footer-tab"; // Adjust path
 import Preloader from "../Preloader"; // Adjust path
 import BackButton from "../../includes/Back_btn"; // Adjust path
 import { AuthContext } from "../../context/AuthContext"; // Adjust path
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from '../../assets/css/Withdrawal.module.css'; // Import CSS Module
-import { AiOutlineHistory } from "react-icons/ai"; // History Icon
-import { FaRegCreditCard, FaUniversity } from "react-icons/fa"; // Icons for payment methods
+import { FaUniversity } from "react-icons/fa"; // Icons for payment methods
 
 // Payment method images (replace with your actual paths or import if needed)
 const paytmLogo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR363BO6LXUKGXXHiOTaHnqqDXgwpw4qOeOoA&s";
@@ -133,7 +132,6 @@ function Withdrawal() {
     }
 
     try {
-        const [currentHour, currentMinute] = currentTime.split(":").map(Number);
         const [startHour, startMinute] = StartTime.split(":").map(Number);
         const [endHour, endMinute] = EndTime.split(":").map(Number);
 

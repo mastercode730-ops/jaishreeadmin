@@ -7,8 +7,7 @@ import {
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../includes/footer-tab"; // Adjust path if needed
-import { FaWhatsapp, FaTelegramPlane } from "react-icons/fa"; // Added Telegram
-import { MdClose } from "react-icons/md"; // Keep close icon for notice
+import { FaWhatsapp } from "react-icons/fa"; // Added Telegram
 import { GrMenu } from "react-icons/gr";
 import { BiMoneyWithdraw } from "react-icons/bi";
 import { FaChartLine, FaPlay, FaChevronRight } from "react-icons/fa"; // Keep ChevronRight
@@ -35,7 +34,6 @@ function Dashboard() {
     isAuthenticated,
     profile,
     WhatsappMessageSupport, // Assuming this is the WhatsApp link
-    TelegramLink, // Assuming you have a Telegram link in context
     base_url,
     FSC_KEY_UPDATE,
   } = useContext(AuthContext);
@@ -97,6 +95,7 @@ function Dashboard() {
     }
   }, []);
 
+  // eslint-disable-next-line no-unused-vars
   const handleCloseNotice = () => {
     setNoticeStatus(false);
     localStorage.setItem("noticeStatus", "false");

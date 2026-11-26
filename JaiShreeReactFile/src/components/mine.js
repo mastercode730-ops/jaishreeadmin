@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { motion } from "framer-motion";
 import Footer from '../includes/footer-tab'; // Adjust path if needed
-import Dropdown from '../includes/Dropdown'; // Adjust path if needed
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Preloader from './Preloader'; // Adjust path if needed
@@ -16,7 +16,7 @@ function Mine() {
     const [userid, setUserId] = useState('');
     const [userName, setUserName] = useState(''); // Added state for username
     const [preloader, setPreloader] = useState(true);
-    const { isAuthenticated, logout, profile, WhatsappMessage, WhastappMessage } = useContext(AuthContext);
+    const { isAuthenticated, logout, profile, WhatsappMessage } = useContext(AuthContext);
     const navigate = useNavigate();
 
     // Redirect if not authenticated
@@ -76,28 +76,6 @@ function Mine() {
     const itemVariants = {
         hidden: { x: -20, opacity: 0 },
         visible: { x: 0, opacity: 1, transition: { type: 'tween', duration: 0.3 } },
-    };
-
-
-    // Function to handle external links or specific actions
-    const handleDropdownClick = (url, isExternal = false, action = null) => {
-        if (action === 'share') {
-            WhastappMessage().then(shareUrl => {
-                if (shareUrl) {
-                    window.open(shareUrl, '_blank');
-                } else {
-                    message(0, "Could not generate share link.");
-                }
-            }).catch(err => {
-                 message(0, "Error generating share link.");
-                 console.error(err);
-            });
-        } else if (isExternal && url) {
-            window.open(url, '_blank');
-        } else if (url) {
-            navigate(url);
-        }
-        // If only itemclick is needed without navigation, handle it here
     };
 
 

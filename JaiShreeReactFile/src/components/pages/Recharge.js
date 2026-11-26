@@ -6,9 +6,8 @@ import Footer from "../../includes/footer-tab"; // Adjust path
 import Preloader from "../Preloader"; // Adjust path
 import BackButton from "../../includes/Back_btn"; // Adjust path
 import { AuthContext } from "../../context/AuthContext"; // Adjust path
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from '../../assets/css/Recharge.module.css'; // Import CSS Module
-import { AiOutlineHistory } from "react-icons/ai"; // History Icon
 import { FaQrcode, FaUniversity } from "react-icons/fa"; // QR & Bank Icons
 
 function Recharge() {

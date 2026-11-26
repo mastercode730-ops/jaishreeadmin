@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getMessaging, getToken, onMessage, isSupported } from "firebase/messaging";
+import { getMessaging, getToken, isSupported } from "firebase/messaging";
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -14,7 +14,6 @@ const firebaseConfig = {
 
 let firebaseApp;
 let messaging;
-let messagingInstance;
 
 export const initializeFirebase = async () => {
   if (!firebaseApp) {

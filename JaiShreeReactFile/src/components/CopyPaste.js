@@ -124,7 +124,7 @@ function CopyPaste() {
     let cleanedMsg = msg.trim();
     cleanedMsg = cleanedMsg.replace(/\[.*?\]\s*.*?:/g, ''); // Remove [time] Name: pattern
     cleanedMsg = cleanedMsg.replace(/<.*?\]\s*.*?:/g, ''); // Remove <time> Name: pattern
-    cleanedMsg = cleanedMsg.replace(/^\s*[\*-]?\s*/gm, ''); // Remove leading bullets/spaces
+    cleanedMsg = cleanedMsg.replace(/^\s*[*-]?\s*/gm, ''); // Remove leading bullets/spaces
 
     // Split into lines
     const lines = cleanedMsg.split('\n');

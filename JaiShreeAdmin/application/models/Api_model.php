@@ -94,6 +94,8 @@ class Api_model extends CI_Model
     public function login()
     {
         $OTP_AVAIALBLE = false;
+        $DEV_MODE = true; // Set false in production
+        $DEV_OTP = '123456'; // Fixed OTP for dev mode
         $name = "User";
         $mobile = $this->input->post('mobile');
         $password_input = $this->input->post('otp');
@@ -157,8 +159,8 @@ class Api_model extends CI_Model
             return $result;
         }
         $id_verify = $this->db->get_where('users', array('mobile' => $mobile));
-        // $otp = 1234;
-        $otp = rand(1000,9999);
+        // Dev mode: use fixed OTP, Production: use random OTP
+        $otp = $DEV_MODE ? $DEV_OTP : rand(1000, 9999);
         $userid = 0;
         $purpose = 0;
         

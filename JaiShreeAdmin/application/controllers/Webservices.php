@@ -11,7 +11,17 @@ class Webservices extends REST_Controller
     {
         parent::__construct();
         $this->load->model('api_model');
+
+        // CORS Headers — allow all origins (dev + Vercel production)
         header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+
+        // Handle preflight OPTIONS request immediately
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            http_response_code(200);
+            exit();
+        }
     }
     
     public function signup_post()
